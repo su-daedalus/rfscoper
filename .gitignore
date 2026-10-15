@@ -1,0 +1,105 @@
+# =====================================================================
+#  rfscoper .gitignore
+#  Rule of thumb: code and docs go in the repo. Data, secrets and
+#  anything generated stay on your machine.
+# =====================================================================
+
+# ---------------------------------------------------------------------
+#  RF data: never commit captures
+#  A capture records what was transmitting where you stood, when, and
+#  your notes about the place. Treat it as private.
+# ---------------------------------------------------------------------
+captures/
+*.csv
+*.meta.json
+# Raw IQ and other SDR recordings
+*.iq
+*.cfile
+*.cs8
+*.cu8
+*.cs16
+*.cf32
+*.raw
+*.bin
+*.sigmf-data
+*.sigmf-meta
+*.wav
+# Wi-Fi / Bluetooth packet captures (contain device MAC addresses)
+*.pcap
+*.pcapng
+*.cap
+# Old captures moved aside for a moment while an overwrite runs
+*.replaced
+
+# ---------------------------------------------------------------------
+#  Generated plots (only the README screenshots are kept)
+# ---------------------------------------------------------------------
+*.png
+*.svg
+!docs/images/*.png
+
+# ---------------------------------------------------------------------
+#  Secrets: these should never be inside a project folder at all,
+#  but if one ends up here, git won't pick it up
+# ---------------------------------------------------------------------
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.kdbx
+id_rsa*
+id_ed25519*
+*.token
+credentials*.json
+secrets.*
+.git-credentials
+.netrc
+*.gpg
+*.asc
+*.db
+*.sqlite
+*.sqlite3
+
+# ---------------------------------------------------------------------
+#  Python
+# ---------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Test, lint and type-check output
+.pytest_cache/
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+.ruff_cache/
+.mypy_cache/
+
+# Notebooks
+.ipynb_checkpoints/
+
+# ---------------------------------------------------------------------
+#  Editors, OS and downloads
+# ---------------------------------------------------------------------
+.vscode/
+.idea/
+.claude/
+*.swp
+*~
+.DS_Store
+Thumbs.db
+*.log
+*.zip
+*.tar.gz
